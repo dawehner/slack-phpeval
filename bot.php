@@ -31,6 +31,12 @@ class SimpleEval extends \PhpSlackBot\Command\BaseCommand {
 
 }
 
+/**
+ * Ideas:
+ *   - use psysh as alternative implementation.
+ *   - use register_tick_function() to have a timeout.
+ */
+
 
 $bot = new Bot();
 $bot->setToken('xoxb-48155999411-IaQZGf5RAgDUs60r63oNgV7H');
