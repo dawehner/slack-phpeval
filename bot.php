@@ -3,6 +3,7 @@
 require 'vendor/autoload.php';
 use PhpSlackBot\Bot;
 
+
 // Who Am I Command.
 class WhoAmICommand extends \PhpSlackBot\Command\BaseCommand {
 
@@ -37,9 +38,12 @@ class SimpleEval extends \PhpSlackBot\Command\BaseCommand {
  *   - use register_tick_function() to have a timeout.
  */
 
+$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv->required('SLACK_API_TOKEN')->notEmpty();
+$dotenv->load();
 
 $bot = new Bot();
-$bot->setToken('xoxb-48155999411-IaQZGf5RAgDUs60r63oNgV7H');
+$bot->setToken(getenv('SLACK_API_TOKEN'));
 $bot->loadCommand(new WhoAmICommand());
 $bot->loadCommand(new SimpleEval());
 $bot->run();
