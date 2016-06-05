@@ -39,8 +39,8 @@ class SimpleEval extends \PhpSlackBot\Command\BaseCommand {
  */
 
 $dotenv = new Dotenv\Dotenv(__DIR__);
-$dotenv->required('SLACK_API_TOKEN')->notEmpty();
 $dotenv->load();
+$dotenv->required('SLACK_API_TOKEN')->notEmpty();
 
 $bot = new Bot();
 $bot->setToken(getenv('SLACK_API_TOKEN'));
